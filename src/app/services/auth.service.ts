@@ -21,4 +21,12 @@ export class AuthService {
   register = (email: string, password: string) => {
     this.afAuth.createUserWithEmailAndPassword(email, password);
   }
+
+  login = (email: string, password: string) => {
+    this.afAuth.signInWithEmailAndPassword(email, password);
+  }
+
+  logout = () => {
+    this.afAuth.signOut();
+  }
 }
