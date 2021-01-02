@@ -6,9 +6,12 @@ name: Deploy to Firebase Hosting on PR
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
+    with:
+      node-version: 12.8
     steps:
       - uses: actions/checkout@v2
-      - run: npm i && ng build --prod
+      - run: npm i
+      - run: ng build --prod
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
