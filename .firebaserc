@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tracksys-stacktest": {
+      "hosting": {
+        "tracksys-stacktest": [
+          "tracksys-stacktest"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tracksys-stacktest"
+  }
+}
