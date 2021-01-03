@@ -26,13 +26,15 @@ import { AppRoutingModule } from './app-routing.module';
 // OTHER INTERNALS
 import { environment } from 'src/environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateClientComponent } from './components/client/create-client/create-client.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CreateClientComponent
   ],
   imports: [
     BrowserModule,

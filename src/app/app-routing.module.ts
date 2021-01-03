@@ -5,10 +5,12 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { HomeComponent } from './components/home/home.component';
 
 import {AuthGuard} from 'src/app/guards/auth.guard'
+import { CreateClientComponent } from './components/client/create-client/create-client.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+  { path: 'create-client', component: CreateClientComponent, pathMatch: 'full', canActivate: [AuthGuard]},
   { path: 'register', component: RegisterComponent, pathMatch: 'full'},
   { path: 'login', component: LoginComponent, pathMatch: 'full'},
 ];
