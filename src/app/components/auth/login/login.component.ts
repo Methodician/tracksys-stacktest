@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { StateCodeM } from 'src/app/models/client.models'
+
 @Component({
   selector: 'tks-login',
   templateUrl: './login.component.html',
@@ -21,6 +23,10 @@ export class LoginComponent implements OnInit {
     this.authSvc.authInfo$.subscribe(authInfo => {
       console.log(authInfo)
       this.isLoggedIn = !!authInfo
+    })
+
+    Object.entries(StateCodeM).map(([code, value]) => {
+      console.log({code, value})
     })
   }
 
