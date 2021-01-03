@@ -52,8 +52,8 @@ export type stateCodeT =
     "WY";
 
 export interface ClientI {
-    id: string;
-    active: boolean;
+    id?: string;
+    isActive: boolean;
     name: string;
     formalName: string;
     address1: string;
