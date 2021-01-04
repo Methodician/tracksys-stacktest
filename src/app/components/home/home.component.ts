@@ -1,23 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { StateCodeM } from 'src/app/models/client.models'
+import { StateCodeM } from 'src/app/models/client.models';
 
 @Component({
   selector: 'tks-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   title = 'tracksys-stacktest';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-
-    for(let entry of StateCodeM.entries()){
-      const code = entry[0];
-      const name = entry[1].displayName;
-      console.log({code, name});
-    }
-  }
-
+  ngOnInit(): void {}
 }
