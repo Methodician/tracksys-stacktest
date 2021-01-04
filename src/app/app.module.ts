@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 // ANGULAR FIRE
 import { AngularFireModule } from '@angular/fire';
@@ -45,6 +46,7 @@ import { CreateClientComponent } from './components/client/create-client/create-
     MatCardModule,
     MatInputModule,
     MatButtonModule,
+    MatAutocompleteModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
