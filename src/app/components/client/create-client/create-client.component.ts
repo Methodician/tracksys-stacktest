@@ -7,6 +7,7 @@ import { ClientService } from 'src/app/services/client.service';
 
 const zipCodeRegex = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
 const stateCodeRegex = /^((A[LKSZR])|(C[AOT])|(D[EC])|(F[ML])|(G[AU])|(HI)|(I[DLNA])|(K[SY])|(LA)|(M[EHDAINSOT])|(N[EVHJMYCD])|(MP)|(O[HKR])|(P[WAR])|(RI)|(S[CD])|(T[NX])|(UT)|(V[TIA])|(W[AVIY]))$/;
+const cityRegex = /^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;
 
 @Component({
   selector: 'tks-create-client',
@@ -25,7 +26,7 @@ export class CreateClientComponent implements OnInit {
       formalName: ['', Validators.required],
       address1: ['', Validators.required],
       address2: '',
-      city: ['', Validators.required],
+      city: ['', [Validators.required, Validators.pattern(cityRegex)]],
       state: ['', [Validators.required, Validators.pattern(stateCodeRegex)]],
       zipCode: ['', [Validators.required, Validators.pattern(zipCodeRegex)]],
     });
