@@ -5,6 +5,9 @@ import { map, startWith } from 'rxjs/operators';
 import { ClientI, StateCodeM } from 'src/app/models/client.models';
 import { ClientService } from 'src/app/services/client.service';
 
+const zipCodeRegex = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+const stateCodeRegex = /^((A[LKSZR])|(C[AOT])|(D[EC])|(F[ML])|(G[AU])|(HI)|(I[DLNA])|(K[SY])|(LA)|(M[EHDAINSOT])|(N[EVHJMYCD])|(MP)|(O[HKR])|(P[WAR])|(RI)|(S[CD])|(T[NX])|(UT)|(V[TIA])|(W[AVIY]))$/;
+
 @Component({
   selector: 'tks-create-client',
   templateUrl: './create-client.component.html',
@@ -23,8 +26,8 @@ export class CreateClientComponent implements OnInit {
       address1: ['', Validators.required],
       address2: '',
       city: ['', Validators.required],
-      state: ['', Validators.required],
-      zipCode: ['', Validators.required],
+      state: ['', [Validators.required, Validators.pattern(stateCodeRegex)]],
+      zipCode: ['', [Validators.required, Validators.pattern(zipCodeRegex)]],
     });
 
     this.stateCodes = Array.from(StateCodeM).map(state => state[0]);
@@ -37,13 +40,17 @@ export class CreateClientComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  submitClient = () => {
-    if (!this.clientForm.valid) {
-      alert('You made a boo boo');
-    }
+  submitClient = async () => {
     const client = this.clientForm.value as ClientI;
 
-    this.clientSvc.addClient(client);
+    if (!this.clientForm.valid) {
+      alert('You made a boo boo');
+      return;
+    }
+
+    const clientRef = await this.clientSvc.addClient(client);
+    const clientId = clientRef.id;
+    alert(`we would route you to the detail for client with id: ${clientId}`);
   };
 
   checkState = () => {
