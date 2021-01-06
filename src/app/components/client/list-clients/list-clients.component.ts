@@ -10,7 +10,14 @@ import { ClientService } from 'src/app/services/client.service';
 export class ListClientsComponent implements OnInit {
   clients: ClientI[] = [];
 
-  displayedColumns: string[] = ['name', 'city', 'state', 'zipCode'];
+  displayedColumns = {
+    name: 'Name',
+    city: 'City',
+    state: 'State',
+    zipCode: 'Zip Code',
+  };
+
+  displayedColumnKeys = Object.keys(this.displayedColumns);
 
   constructor(private clientSvc: ClientService) {}
 
