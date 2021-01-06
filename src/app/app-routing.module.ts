@@ -6,6 +6,8 @@ import { HomeComponent } from './components/home/home.component';
 
 import { AuthGuard } from 'src/app/guards/auth.guard';
 import { CreateClientComponent } from './components/client/create-client/create-client.component';
+import { GuideComponent } from './components/guide/guide.component';
+import { ListClientsComponent } from './components/client/list-clients/list-clients.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -15,6 +17,8 @@ const routes: Routes = [
     pathMatch: 'full',
     canActivate: [AuthGuard],
   },
+  { path: 'guide', component: GuideComponent, pathMatch: 'full' },
+  { path: 'clients', component: ListClientsComponent, pathMatch: 'full' },
   {
     path: 'clients/create',
     component: CreateClientComponent,
