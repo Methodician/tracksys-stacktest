@@ -17,6 +17,23 @@ main {
 
     .mat-table {
       width: 100%;
+
+      .client-detail {
+        overflow: hidden;
+        display: flex;
+        .formal-name {
+          font-size: 1.4em;
+          margin-right: 2em;
+        }
+      }
+
+      .basic-row td {
+        border-bottom-width: 0;
+      }
+
+      .detail-row {
+        height: 0;
+      }
     }
   }
 }
