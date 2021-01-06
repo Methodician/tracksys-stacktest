@@ -43,7 +43,6 @@
             formControlName="state"
             type="text"
             oninput="this.value = this.value.toUpperCase()"
-            (blur)="checkState()"
           />
           <mat-autocomplete #stateAutoList="matAutocomplete">
             <mat-option
