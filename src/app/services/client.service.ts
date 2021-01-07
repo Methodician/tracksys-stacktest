@@ -9,7 +9,7 @@ export class ClientService {
   constructor(private afd: AngularFirestore) {}
 
   // FIRESTORE COLLECTIONS
-  clientsCollection = () => this.afd.collection('clients');
+  clientsCollection = () => this.afd.collection<ClientI>('clients');
   // end firestore collections
 
   // FIRESOTRE DOCUMENTS
