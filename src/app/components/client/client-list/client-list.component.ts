@@ -9,6 +9,7 @@ import {
 
 import { ClientI } from 'src/app/models/client.models';
 import { ClientService } from 'src/app/services/client.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'tks-client-list',
@@ -39,17 +40,17 @@ export class ClientListComponent implements OnInit {
 
   expandedClient: ClientI | null = null;
 
-  constructor(private clientSvc: ClientService) {}
+  constructor(private router: Router, private clientSvc: ClientService) {}
 
   ngOnInit(): void {
     this.clientSvc
       .clientsCollection()
-      .valueChanges()
+      .valueChanges({ idField: 'id' })
       .subscribe(clients => (this.clients = clients));
   }
 
   editClient = ($e: MouseEvent, client: ClientI) => {
     $e.stopPropagation();
-    console.log(client);
+    this.router.navigateByUrl(`/clients/${client.id}`);
   };
 }

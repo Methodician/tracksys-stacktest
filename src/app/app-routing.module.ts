@@ -8,6 +8,7 @@ import { AuthGuard } from 'src/app/guards/auth.guard';
 import { GuideComponent } from './components/guide/guide.component';
 import { ClientListComponent } from './components/client/client-list/client-list.component';
 import { ClientCreateComponent } from './components/client/client-create/client-create.component';
+import { ClientEditComponent } from './components/client/client-edit/client-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const routes: Routes = [
     pathMatch: 'full',
     canActivate: [AuthGuard],
   },
+  { path: 'clients/:id', component: ClientEditComponent, pathMatch: 'full' },
   { path: 'register', component: RegisterComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
 ];

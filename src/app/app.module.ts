@@ -30,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GuideComponent } from './components/guide/guide.component';
 import { ClientCreateComponent } from './components/client/client-create/client-create.component';
 import { ClientListComponent } from './components/client/client-list/client-list.component';
+import { ClientEditComponent } from './components/client/client-edit/client-edit.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ClientListComponent } from './components/client/client-list/client-list
     RegisterComponent,
     ClientCreateComponent,
     ClientListComponent,
+    ClientEditComponent,
   ],
   imports: [
     BrowserModule,
