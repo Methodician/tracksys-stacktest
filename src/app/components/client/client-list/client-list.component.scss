@@ -18,12 +18,35 @@ main {
     .mat-table {
       width: 100%;
 
-      .client-detail {
+      .client-subsection {
         overflow: hidden;
-        display: flex;
-        .formal-name {
-          font-size: 1.4em;
-          margin-right: 2em;
+        display: grid;
+        grid-template-columns: 5fr 1fr;
+
+        .client-detail {
+          align-items: center;
+          overflow: hidden;
+          display: flex;
+
+          p {
+            margin: 0;
+          }
+
+          .formal-name {
+            font-size: 1.2em;
+            margin-right: 1em;
+          }
+          .at {
+            margin-right: 1em;
+          }
+
+          .address {
+            font-size: 1.2em;
+          }
+        }
+
+        .edit-btn {
+          justify-self: flex-end;
         }
       }
 
@@ -31,8 +54,25 @@ main {
         border-bottom-width: 0;
       }
 
+      .basic-row:not(.expanded-row):hover {
+        background: lightcyan;
+      }
+
+      .basic-row:not(.expanded-row):active {
+        background: lightskyblue;
+      }
+
+      .expanded-row {
+        background: rgba(112 208 245 / 12%);
+
+        td {
+          border-bottom: 1px dashed lightgray;
+        }
+      }
+
       .detail-row {
         height: 0;
+        background: rgba(112 208 245 / 12%);
       }
     }
   }

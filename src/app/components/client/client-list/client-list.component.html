@@ -20,17 +20,28 @@
             [attr.colspan]="displayedColumnKeys.length"
           >
             <section
-              class="client-detail"
+              class="client-subsection"
               [@detailExpand]="
-                client == expandedElement ? 'expanded' : 'collapsed'
+                client == expandedClient ? 'expanded' : 'collapsed'
               "
             >
-              <p class="formal-name">
-                {{ client.formalName }}
-              </p>
-              <p class="address">
-                at {{ client.address1 }} {{ client.address2 }}
-              </p>
+              <div class="client-detail">
+                <p class="formal-name">
+                  {{ client.formalName }}
+                </p>
+                <p class="at">at</p>
+                <p class="address">
+                  {{ client.address1 }} {{ client.address2 }}
+                </p>
+              </div>
+              <button
+                (click)="editClient($event, client)"
+                mat-button
+                color="primary"
+                class="edit-btn"
+              >
+                Edit
+              </button>
             </section>
           </td>
         </ng-container>
@@ -39,13 +50,15 @@
         <tr
           mat-row
           class="basic-row"
+          [class.expanded-row]="expandedClient === client"
           *matRowDef="let client; columns: displayedColumnKeys"
-          (click)="expandedElement = expandedElement === client ? null : client"
+          (click)="expandedClient = expandedClient === client ? null : client"
         ></tr>
         <tr
           mat-row
           *matRowDef="let row; columns: ['expandedDetail']"
           class="detail-row"
+          (click)="expandedClient = null"
         ></tr>
       </table>
     </mat-card-content>

@@ -37,7 +37,7 @@ export class ClientListComponent implements OnInit {
 
   displayedColumnKeys = Object.keys(this.displayedColumns);
 
-  expandedElement: ClientI | null = null;
+  expandedClient: ClientI | null = null;
 
   constructor(private clientSvc: ClientService) {}
 
@@ -47,4 +47,9 @@ export class ClientListComponent implements OnInit {
       .valueChanges()
       .subscribe(clients => (this.clients = clients));
   }
+
+  editClient = ($e: MouseEvent, client: ClientI) => {
+    $e.stopPropagation();
+    console.log(client);
+  };
 }
