@@ -156,5 +156,8 @@
       }
     }
   },
-  "defaultProject": "tracksys-stacktest"
+  "defaultProject": "tracksys-stacktest",
+  "cli": {
+    "analytics": "5a448e38-f96a-4faf-acb7-4f6f48547b22"
+  }
 }
