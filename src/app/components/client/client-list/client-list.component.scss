@@ -1,0 +1,39 @@
+main {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+
+  .mat-card {
+    width: 90vw;
+    max-width: 900px;
+    height: 100%;
+    align-self: center;
+    justify-self: center;
+
+    .mat-card-title {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .mat-table {
+      width: 100%;
+
+      .client-detail {
+        overflow: hidden;
+        display: flex;
+        .formal-name {
+          font-size: 1.4em;
+          margin-right: 2em;
+        }
+      }
+
+      .basic-row td {
+        border-bottom-width: 0;
+      }
+
+      .detail-row {
+        height: 0;
+      }
+    }
+  }
+}

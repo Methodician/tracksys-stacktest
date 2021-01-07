@@ -27,19 +27,19 @@ import { AppRoutingModule } from './app-routing.module';
 // OTHER INTERNALS
 import { environment } from 'src/environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CreateClientComponent } from './components/client/create-client/create-client.component';
 import { GuideComponent } from './components/guide/guide.component';
-import { ListClientsComponent } from './components/client/list-clients/list-clients.component';
+import { ClientCreateComponent } from './components/client/client-create/client-create.component';
+import { ClientListComponent } from './components/client/client-list/client-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    GuideComponent,
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    CreateClientComponent,
-    GuideComponent,
-    ListClientsComponent,
+    ClientCreateComponent,
+    ClientListComponent,
   ],
   imports: [
     BrowserModule,

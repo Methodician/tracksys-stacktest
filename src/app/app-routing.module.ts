@@ -5,9 +5,9 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { HomeComponent } from './components/home/home.component';
 
 import { AuthGuard } from 'src/app/guards/auth.guard';
-import { CreateClientComponent } from './components/client/create-client/create-client.component';
 import { GuideComponent } from './components/guide/guide.component';
-import { ListClientsComponent } from './components/client/list-clients/list-clients.component';
+import { ClientListComponent } from './components/client/client-list/client-list.component';
+import { ClientCreateComponent } from './components/client/client-create/client-create.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,10 +18,10 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'guide', component: GuideComponent, pathMatch: 'full' },
-  { path: 'clients', component: ListClientsComponent, pathMatch: 'full' },
+  { path: 'clients', component: ClientListComponent, pathMatch: 'full' },
   {
     path: 'clients/create',
-    component: CreateClientComponent,
+    component: ClientCreateComponent,
     pathMatch: 'full',
     canActivate: [AuthGuard],
   },
